@@ -78,12 +78,3 @@ select {
   white-space: nowrap; /* added line */
   border: 0;
 }
-
-/* .box {
-  background-color: lightblue;
-  padding: 3rem;
-}
-
-.center {
-  --gap: 5rem;
-} */
