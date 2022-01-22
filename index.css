@@ -196,3 +196,7 @@ select {
 .fs-600 {
   line-height: 1.1;
 }
+
+.numbered-title {
+  color: hsl(var(--clr-light));
+}
