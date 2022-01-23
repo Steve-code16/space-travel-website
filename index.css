@@ -198,5 +198,5 @@ select {
 }
 
 .numbered-title {
-  color: hsl(var(--clr-light));
+  color: hsl(var(--clr-light) 50%);
 }
