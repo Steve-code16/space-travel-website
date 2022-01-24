@@ -18,6 +18,10 @@ picture {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -225,7 +229,6 @@ select {
   display: grid;
   z-index: 1;
   place-items: center;
-  text-decoration: none;
   border-radius: 50%;
   padding: 0 2em;
   aspect-ratio: 1;
@@ -247,4 +250,32 @@ select {
 .large-btn:focus::after {
   opacity: 1;
   transform: scale(1.5);
+}
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-space: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation span {
+  margin-right: 0.5em;
+  font-weight: 700;
+}
+
+.underline-indicators > * {
+  padding: var(--underline-space, 1rem) 0;
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+  transition: border-bottom 0.3s ease-in-out;
+}
+
+.underline-indicators > li:hover,
+.underline-indicators > li:focus {
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0.5);
+}
+
+.underline-indicators > .active {
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 1);
 }
