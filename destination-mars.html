@@ -76,36 +76,39 @@
         <span aria-hidden="true">01</span> Pick your destination
       </h1>
 
-      <img src="./assets/destination/image-mars.png" alt="mars" />
+      <picture>
+        <source srcset="assets/destination/image-mars.webp" type="image/webp" />
+        <img src="./assets/destination/image-mars.png" alt="mars" />
+      </picture>
 
       <div class="tab-list underline-indicators flex">
         <button
           aria-selected="false"
-          class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+          class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Moon
         </button>
         <button
           aria-selected="true"
-          class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+          class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Mars
         </button>
         <button
           aria-selected="false"
-          class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+          class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Europa
         </button>
         <button
           aria-selected="false"
-          class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+          class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Titan
         </button>
       </div>
 
-      <article class="destination-info">
+      <article class="destination-info flow">
         <h2 class="ff-serif uppercase fs-800">Mars</h2>
         <p class="text-accent">
           Don’t forget to pack your hiking boots. You’ll need them to tackle
