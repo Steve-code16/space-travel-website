@@ -1,5 +1,6 @@
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
+const main = document.getElementById("main");
 
 tabList.addEventListener("keydown", changeTabFocus);
 
@@ -41,6 +42,9 @@ function changeTabPanel(e) {
 
   const tabContainer = targetTab.parentNode;
   const mainContainer = tabContainer.parentNode;
+  const newMainContainer = mainContainer.parentNode;
+
+  console.log(tabContainer, mainContainer.parentNode === main);
 
   tabContainer
     .querySelector('[aria-selected="true"]')
@@ -48,11 +52,16 @@ function changeTabPanel(e) {
 
   targetTab.setAttribute("aria-selected", true);
 
-  hideContent(mainContainer, '[role="tabpanel"]');
-  showContent(mainContainer, [`#${targetPanel}`]);
+  if (mainContainer.querySelector([`#${targetPanel}`]) === null) {
+    showContent(newMainContainer, [`#${targetPanel}`]);
+    showContent(newMainContainer, [`#${targetImage}`]);
+  } else {
+    hideContent(mainContainer, '[role="tabpanel"]');
+    showContent(mainContainer, [`#${targetPanel}`]);
 
-  hideContent(mainContainer, "picture");
-  showContent(mainContainer, [`#${targetImage}`]);
+    hideContent(mainContainer, "picture");
+    showContent(mainContainer, [`#${targetImage}`]);
+  }
 }
 
 function hideContent(parent, content) {
@@ -64,11 +73,3 @@ function hideContent(parent, content) {
 function showContent(parent, content) {
   parent.querySelector(content).removeAttribute("hidden");
 }
-
-// if (hidden) {
-//     element.removeAttribute("hidden");
-//     button.innerText = "Hide picture";
-//  } else {
-//     element.setAttribute("hidden", "hidden");
-//     button.innerText = "Show picture";
-//  }
