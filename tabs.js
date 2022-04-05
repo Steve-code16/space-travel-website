@@ -1,6 +1,5 @@
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
-const main = document.getElementById("main");
 
 tabList.addEventListener("keydown", changeTabFocus);
 
@@ -44,24 +43,17 @@ function changeTabPanel(e) {
   const mainContainer = tabContainer.parentNode;
   const newMainContainer = mainContainer.parentNode;
 
-  console.log(tabContainer, mainContainer.parentNode === main);
-
   tabContainer
     .querySelector('[aria-selected="true"]')
     .setAttribute("aria-selected", false);
 
   targetTab.setAttribute("aria-selected", true);
 
-  if (mainContainer.querySelector([`#${targetPanel}`]) === null) {
-    showContent(newMainContainer, [`#${targetPanel}`]);
-    showContent(newMainContainer, [`#${targetImage}`]);
-  } else {
-    hideContent(mainContainer, '[role="tabpanel"]');
-    showContent(mainContainer, [`#${targetPanel}`]);
+  hideContent(newMainContainer, '[role="tabpanel"]');
+  showContent(newMainContainer, [`#${targetPanel}`]);
 
-    hideContent(mainContainer, "picture");
-    showContent(mainContainer, [`#${targetImage}`]);
-  }
+  hideContent(newMainContainer, "picture");
+  showContent(newMainContainer, [`#${targetImage}`]);
 }
 
 function hideContent(parent, content) {
